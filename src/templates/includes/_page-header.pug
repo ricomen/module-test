@@ -1,34 +1,33 @@
 header.page-header
   .page-header__top
-    .container
-      .page-header__qr.qr-block
-        +icon("qr", 24, 24)
-      .page-header__search.search
-        input.search__field(type='text')
-        button(type='button')
-          +icon("search", 18, 18)
-      nav.menu
-        ul.menu__list
-          li.menu__item Деньги
-            a(href='#')
-          li.menu__item
-            a(href='#') Контакты
-          li.menu__item.menu__item--dropdown
-            a(href='javascript: void(0)') Услуги
-              | 
-              ul.menu__list.menu__list--submenu
-                li
-                  a(href='#') Пункт меню
-                li
-                  a(href='#') Пункт меню
-      .page-header__add
-        button
-          +icon("plus", 42, 42)
-      .page-header__notify
-        button
-          +icon("home", 15, 19)
-          .badge.badge--alert 2
-      .page-header__order
+    .page-header__qr.qr-block
+      +icon("qr", 24, 24)
+    .page-header__search.search
+      input.search__field(type='text')
+      button(type='button')
+        +icon("search", 18, 18)
+    nav.page-header__nav.menu
+      ul.menu__list
+        li.menu__item Деньги
+          a(href='#')
+        li.menu__item
+          a(href='#') Контакты
+        li.menu__item.menu__item--dropdown
+          a(href='javascript: void(0)') Услуги
+            | 
+            ul.menu__list.menu__list--submenu
+              li
+                a(href='#') Пункт меню
+              li
+                a(href='#') Пункт меню
+    .page-header__add
+      button
+        +icon("plus", 42, 42)
+    .page-header__notify
+      button
+        +icon("home", 15, 19)
+        .badge.badge--alert 2
+    .page-header__order
         nav.menu
           ul.menu__list
             li.menu__item.menu__item--dropdown.menu__item--dropdown--fh.menu__item--open
@@ -37,46 +36,5 @@ header.page-header
                   button.menu__panel-close
                     +icon("close", 20, 20)
                   .menu__panel-descr Платежное поручение № 5241234 от 23.09.2015
-                .menu__panel-body.order
-                  .order__inner
-                    .order__sum -23 500,00 &#8381;
-                    .order__bill
-                      span со счета:
-                      span Расчетный счет(***012345)
-                    .order__badge.badge.badge--success
-                      .order__bagde-text исполнен,
-                      .order__badge-date 21 июня 15:33
-                    .order__panel
-                      .order__name ООО "Родные просторы"
-                      .order__requisites
-                        p ИНН: 22341497819132
-                        p Банк: ОАО Сбербанк
-                        p БИК: 2352362365
-                        p Счет: 40802810970010000395
-                      .order__features
-                        p Высокая финансовая устойчивость
-                        p Высокая благонадежность
-                        p Кредитоспособность 44,6 млрд &#8381;
-
-                    .order__panel.order__panel--grey
-                      .order__descr Оплата за партию ромашек и одуванчиков по договору 14023-023 от 14.05.2015 г. Сумма 11430-00. В том числе НДС 18% - 1450,00 ₽
-                    .order__notes
-                      p Комиссия банка: 70 р.
-                      p Размер комиссии рассчитан автоматически согласно тарифу вашей компании и является ознакомительным. Точный размер комиссии определяется после передачи платежного документа на обработку в банк.
-
-                  
-                  .order__bottom
-                    .order__repeat
-                      +icon('repeat', 20, 20)
-                      | Повторить
-                    .order__bookmark
-                      +icon('bookmark', 20, 20)
-                      | В избранное
-                    .order__ask
-                      +icon('ask', 20, 20)
-                      | Спросить
-                    .order__action
-                      +icon('dot', 20, 20)
-                      | Действия
-
-              
+                .menu__panel-body
+                  include _order
