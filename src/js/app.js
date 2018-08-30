@@ -2,7 +2,7 @@
 
 import 'js-custom-scroll';
 
-new jsCustomScroll(document.querySelector('.menu__panel-body'));
+new jsCustomScroll(document.querySelector('.js-custom-scroll'));
 
 // import slick from 'slick-carousel'
 
