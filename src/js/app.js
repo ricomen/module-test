@@ -1,4 +1,8 @@
 'use strict';
+(function(){
+    
+})();
+
 // import slick from 'slick-carousel'
 
 /**
