@@ -60,6 +60,9 @@ textarea {
     color: #2b2b2b;
     background-color: #f8f8f8;
   }
+  &-body {
+    overflow-y: auto;
+  }
   &-close {
     position: absolute;
     top: 50%;
@@ -221,6 +224,19 @@ textarea {
   } //features
 }
 
+// custom scroll css begin
+
+.js-scroll-container > .js-scrollbar-y-wrap {
+  width: 6px;
+  background-color: #f2f2f2;
+  border-radius: 3px;
+}
+.js-scroll-container > .js-scrollbar-y-wrap > .js-scrollbar-y {
+  width: 6px;
+  border-radius: 3px;
+  background-color: #dcdcdc;
+
+}
 // градиент для текста
 // -------------------
 // -webkit-background-clip: text;
