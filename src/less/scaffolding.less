@@ -271,6 +271,48 @@ textarea {
   }//btn
 }
 
+.search {
+  display: flex;
+  position: relative;
+  padding-left: 36px;  
+  &::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 0;
+    height: 0;
+    width: 0;
+    border: 12px solid #fff;
+    border-top: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+  }
+  &__field {
+    margin: auto;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #2B2B2B;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: #2b2b2b;
+      text-transform: uppercase;
+    }
+  }
+  &__label {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 9px;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 0;
+  }
+}
+
 // custom scroll css begin
 
 .js-scroll-container > .js-scrollbar-y-wrap {

@@ -1,12 +1,13 @@
 header.page-header
   //- page-header__top BEGIN
   .page-header__top
-    .page-header__qr.qr-block
-      +icon("qr", 24, 24)
+    .page-header__logo
+      img(src="img/logo.svg" title="QR-Лого" alt="QR-Лого")
     .page-header__search.search
-      input.search__field(type='text')
-      button(type='button')
+      label.search__label(for="search")
         +icon("search", 18, 18)
+        | Найти
+      input.search__field(type='search' id="search" placeholder="Поиск")
     nav.page-header__nav.menu
       ul.menu__list
         li.menu__item Деньги
