@@ -27,28 +27,67 @@
   }//logo
 
   &__search {
+    margin-right: 68px;
     width: 105px;
     height: 60px;
     background-color: #fff;
     box-sizing: border-box;
   }//search
-
-  &__add {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    button {
-      padding: 0;
-      background: transparent;
-      border: none;
-      outline: none;
-      font-size: 0;
+  
+  &__notify {
+    position: relative;
+    margin-left: auto;
+    margin-right: 44px;
+    border: none;
+    outline: none;
+    background: transparent;
+    &-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      height: 16px;
+      min-width: 16px;
+      position: absolute;
+      font-size: 9px;
+      font-weight: 500;
+      color: #fff;
+      border-radius: 8px;
+      border: 2px solid #37aec1;
+      box-sizing: border-box;
+      text-align: center;
+      padding: 0 2px
+        
     }
     .icon {
       fill: #fff;
     }
-  }
+  }//notify
 
+  &__add {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0;    
+    cursor: pointer;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 0;
+    &:hover {
+      .icon {
+        fill: #edeff1;
+      }
+    }
+    
+    .icon {
+      fill: #fff;
+    }
+  }//add
+
+  &__order {    
+    margin-right: 10px;
+
+  }//order
 }

@@ -10,34 +10,35 @@ header.page-header
       input.search__field(type='search' id="search" placeholder="Поиск")
     nav.page-header__nav.menu
       ul.menu__list
-        li.menu__item Деньги
-          a(href='#')
+        li.menu__item.is-active
+          a(href='#') Деньги
         li.menu__item
           a(href='#') Контакты
-        li.menu__item.menu__item--dropdown
+        li.menu__item.menu__item--dropdown.js-menu__item
           a(href='javascript: void(0)') Услуги
-            | 
-            ul.menu__list.menu__list--submenu
-              li
-                a(href='#') Пункт меню
-              li
-                a(href='#') Пункт меню
-    .page-header__add
-      button
-        +icon("plus", 42, 42)
-    .page-header__notify
-      button
-        +icon("home", 15, 19)
-        .badge.badge--alert 2
+          | 
+          ul.menu__list.menu__list--submenu
+            li
+              a(href='#') Пункт меню
+            li
+              a(href='#') Пункт меню
+    button.page-header__add
+      +icon("plus", 42, 42)
+    button.page-header__notify
+      +icon("bell", 14, 20)
+      .page-header__notify-badge.badge.badge--alert 2
     .page-header__order
         nav.menu
           ul.menu__list
-            li.menu__item.menu__item--dropdown.menu__item--dropdown--fh.menu__item--open
+            li.menu__item.menu__item--dropdown.menu__item--dropdown--fh.js-menu__item.item--open
+              a(href="javascript: void(0)")
+                +icon("company", 17, 17, "menu__icon")
+                span ООО «РОДНЫЕ ПРОСТОРЫ»
               .menu__panel.order
                 .menu__panel-top
                   button.menu__panel-close
                     +icon("close", 15, 15)
-                  .menu__panel-descr Платежное поручение № 5241234 от 23.09.2015
+                  .menu__panel-descr(title="Платежное поручение № 5241234 от 23.09.2015") Платежное поручение № 5241234 от 23.09.2015
                 .menu__panel-body.js-custom-scroll
                   .order__inner.order__body
                     .order__sum &ndash;&nbsp;23 500,00 &#8381;

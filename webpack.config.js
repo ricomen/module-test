@@ -24,11 +24,11 @@ module.exports =  {
     //     printWidth: 80,
     //     tabWidth: 4
     // }),
-    new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery'
-    }),
+    // new webpack.ProvidePlugin({
+    //     $: 'jquery',
+    //     jQuery: 'jquery',
+    //     'window.jQuery': 'jquery'
+    // }),
     // new webpack.optimize.UglifyJsPlugin({
     //     beautify: false,
     //     comments: false,
@@ -58,6 +58,4 @@ module.exports =  {
       }
     ]
   }
-
-
 };

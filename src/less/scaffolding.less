@@ -44,7 +44,9 @@ textarea {
   font-family: inherit;
 }
 
-.menu__panel {
+
+.menu {
+  &__panel {
   position: fixed;
   right: 0;
   top: 60px;
@@ -53,6 +55,7 @@ textarea {
   max-width: 900px;
   background-color: #fff;
   z-index: 1000;
+  
   &-top {
     position: relative;
     padding: 15px 15px 15px 75px;
@@ -65,6 +68,7 @@ textarea {
     overflow-y: auto;
   }
   &-close {
+    cursor: pointer;
     position: absolute;
     top: 50%;
     left: 26px;
@@ -74,25 +78,103 @@ textarea {
     height: 15px;
     width: 15px;
     outline: none;
-  }
+  }//close
   &-descr {
     font-size: 24px;
     font-weight: 300;
-  }
-}
-
-.menu {
-  &__item {
-    display: inline-block;
-    vertical-align: middle;
-  } //item
-
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }//descr
+  }//panel
   &__list {
+    margin: 0;
+    padding: 0;
+  }//list
+  
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     &--submenu {
-      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 150px;
+      background-color: #fff;
+      padding: 10px;
+      color: #2B2B2B;
+      box-shadow: 0 4px 4px rgba(0,0,0,.25);
+      z-index: 10;      
+      // display: none;
     }
   } //list
+  
+  &__item {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 34px;
+    padding: 21px 0;
+    list-style: none;
+    color: #d0e0eb;
+    &--dropdown {
+      padding-right: 18px;      
+      &::after {
+        position: absolute;
+        content: '';
+        width: 10px;
+        height: 4px;
+        background-image: data-uri('../img/arrow-menu.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: transform 0.25s ease-in-out;
+      }
+    }
+    &--dropdown .menu__list--submenu {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.25s ease-in-out;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      display: block;
+      color: inherit;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 18px;
+      .icon {
+        fill: #fff;
+      }
+    }
+    &--dropdown.is-active {    
+      .menu__list--submenu {
+        visibility: visible;
+        opacity: 1;
+      }
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+  } //item
 
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    & + span {
+      padding-left: 28px;
+    }
+  }//icon
+  
   &__panel {
     display: flex;
     flex-direction: column;
@@ -106,8 +188,11 @@ textarea {
     &-bottom {      
       flex-shrink: 0;
     }
-  }
+  }//menu
 }
+
+
+
 .order {
   color: #2b2b2b;
   text-align: center;
@@ -150,11 +235,11 @@ textarea {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  } //badge
+  }//badge
 
   &__from {
     color: #828a96;
-  } //from
+  }//from
 
   &__panel {
     position: relative;
@@ -192,7 +277,7 @@ textarea {
     &--grey {
       background-color: #f2f2f2;
     }
-  } //panel
+  }//panel
   &__panel + &__panel {
     top: -10px;
     z-index: -1;
@@ -202,7 +287,7 @@ textarea {
     margin-bottom: 12px;
     font-size: 20px;
     font-weight: normal;
-  } //name
+  }//name
 
   &__requisites {
     &-item {
@@ -229,7 +314,6 @@ textarea {
     
   } //features
   &__bottom {
-
     box-shadow: 0 0 15px rgba(0, 0, 0, .25);
   }//bottom
 
@@ -265,16 +349,18 @@ textarea {
     border: none;
     outline: none;
     background: transparent;
+    align-items: center;
     .icon {
       margin-right: 10px;
     }
   }//btn
-}
+}//order
 
 .search {
   display: flex;
+  align-items: center;
   position: relative;
-  padding-left: 36px;  
+  // padding-left: 36px;  
   &::after {
     content: '';
     position: absolute;
@@ -287,34 +373,44 @@ textarea {
     border-right: 30px solid transparent;
     border-bottom: 30px solid transparent;
   }
-  &__field {
-    margin: auto;
-    width: 100%;
-    box-sizing: border-box;
+  &__field {    
     font-size: 14px;
     color: #2B2B2B;
     border: none;
     outline: none;
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+    box-sizing: border-box;
     &::placeholder {
       color: #2b2b2b;
       text-transform: uppercase;
     }
-  }
+    &:focus {
+      position: absolute;
+      top: 0;
+      left: 36px;
+      bottom: 0;      
+      width: 200px;
+      border-bottom: 1px solid #2b2b2b;      
+      &::placeholder {
+        color: transparent
+      }
+    }
+  }//field
   &__label {
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    left: 9px;
-    transform: translateY(-50%);
     border: none;
     outline: none;
     background: transparent;
     font-size: 0;
-  }
+  }//label
+}//search
+
+.icon {
+  transition: fill 0.25s ease-in-out;
 }
 
 // custom scroll css begin
-
 .js-scroll-container > .js-scrollbar-y-wrap {
   width: 6px;
   background-color: #f2f2f2;
@@ -324,8 +420,10 @@ textarea {
   width: 6px;
   border-radius: 3px;
   background-color: #dcdcdc;
-
 }
+
+
+
 // градиент для текста
 // -------------------
 // -webkit-background-clip: text;
