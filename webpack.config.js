@@ -7,18 +7,21 @@ const PATHS = {
 };
 
 module.exports =  {
-  entry: PATHS.src + '/js/app.js',
+  entry: {
+    app: PATHS.src + '/js/app.js'
+  },
   output: {
     path: PATHS.build + /js/,
-    filename: 'app.js'
+    publicPath: '/js/',
+    filename: '[name].js'
   },
 
   plugins: [
-    // new webpack.optimize.CommonsChunkPlugin({
-    //     name: 'vendor',
-    //     filename: '[name].js',
-    //     minChunks: Infinity
-    // }),
+    new webpack.optimize.CommonsChunkPlugin({
+        name: 'app',
+        filename: '[name].js',
+        minChunks: 2
+    }),
     // uncomment in case of emergency code formatter need
     // new PrettierPlugin({
     //     printWidth: 80,
