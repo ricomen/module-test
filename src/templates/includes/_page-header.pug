@@ -1,7 +1,7 @@
 header.page-header
   //- page-header__top BEGIN
   .page-header__top
-    .page-header__logo
+    a.page-header__logo(href="/")
       img(src="img/logo.svg" title="QR-Лого" alt="QR-Лого")
     .page-header__search.search
       label.search__label(for="search")
@@ -30,7 +30,7 @@ header.page-header
     .page-header__order
         nav.menu
           ul.menu__list
-            li.menu__item.menu__item--dropdown.menu__item--dropdown--fh.js-menu__item.item--open
+            li.menu__item.menu__item--dropdown.is-open.menu__item--dropdown--fh.js-menu__item(data-order)
               a(href="javascript: void(0)")
                 +icon("company", 17, 17, "menu__icon")
                 span ООО «РОДНЫЕ ПРОСТОРЫ»
@@ -45,24 +45,51 @@ header.page-header
                     .order__bill
                       span.order__from со счета:&nbsp;
                       span Расчетный счет&nbsp;(***012345)
-                    .order__badge.badge.badge--success ИСПОЛНЕН, 21 июня 15:33
+                    .order__date ИСПОЛНЕН, 21 июня 15:33
                     .order__panel.order__panel--corner
-                      .order__requisites
-                        .order__name ООО "Родные просторы"
-                        .order__requisites-item ИНН: 22341497819132
-                        .order__requisites-item Банк: ОАО Сбербанк
-                        .order__requisites-item БИК: 2352362365
-                        .order__requisites-item Счет: 40802810970010000395
-                      //- .order__features
-                      //-   p Высокая финансовая устойчивость
-                      //-   p Высокая благонадежность
-                      //-   p Кредитоспособность 44,6 млрд &#8381;
+                      .order__columns
+                        .order__requisites
+                          .order__name ООО "Родные просторы"
+                          .order__requisites-item ИНН: 22341497819132
+                          .order__requisites-item Банк: ОАО Сбербанк
+                          .order__requisites-item БИК: 2352362365
+                          .order__requisites-item Счет: 40802810970010000395
+                        .order__features.w-features
+                          .w-features__item
+                            a.w-features__link(href="javascript:void(0)") Высокая финансовая устойчивости
+                            .w-features__value
+                              .r-progress(data-progress='88')
+                                .r-progress__circle
+                                  .r-progress__mask.r-progress__full
+                                    .r-progress__fill
+                                  .r-progress__mask
+                                    .r-progress__fill
+                                    .r-progress__fill.r-progress__fix
+                                .r-progress__inset
+                          .w-features__item
+                            a.w-features__link(href="javascript:void(0)") Высокая благонадежность
+                            .w-features__value
+                              .r-progress(data-progress='100')
+                                .r-progress__circle
+                                  .r-progress__mask.r-progress__full
+                                    .r-progress__fill
+                                  .r-progress__mask
+                                    .r-progress__fill
+                                    .r-progress__fill.r-progress__fix
+                                .r-progress__inset
+                          .w-features__item
+                            a.w-features__link(href="javascript:void(0)") Кредитоспособность 44,5 млрд &#8381;
+                            .w-features__value
+                              .r-progress.r-progress--textual.r-progress--green
+                                .r-progress__content
+                                  .r-progress__pos 1
+                                  .r-progress__text Класс
 
                     .order__panel.order__panel--grey
-                      .order__descr Оплата за партию ромашек и одуванчиков по договору 14023-023 от 14.05.2015 г. Сумма 11430-00. В том числе НДС 18% - 1450,00 ₽
+                      .order__descr Оплата за&nbsp;партию ромашек и&nbsp;одуванчиков по&nbsp;договору 14023-023 от&nbsp;14.05.2015&nbsp;г. Сумма 11430-00. В&nbsp;том числе НДС 18%&nbsp;&mdash; 1450,00&nbsp;₽
                     .order__notes
-                        p Комиссия банка: 70 р.
-                        p Размер комиссии рассчитан автоматически согласно тарифу вашей компании и является ознакомительным. Точный размер комиссии определяется после передачи платежного документа на обработку в банк.
+                        p.order__notes-item Комиссия банка: 70 р.
+                        p.order__notes-item Размер комиссии рассчитан автоматически согласно тарифу вашей компании и является ознакомительным. Точный размер комиссии определяется после передачи платежного документа на обработку в банк.
                 .order__bottom.menu__panel-bottom
                   .order__actions
                     button(type="button").order__btn

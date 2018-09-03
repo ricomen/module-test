@@ -1,22 +1,32 @@
 'use strict';
-
+import './closest-polyfill';
 import 'js-custom-scroll';
 
+/**
+ *  Custom scroll
+ **/
 new jsCustomScroll(document.querySelector('.js-custom-scroll'));
 
-const menu = document.querySelectorAll('.js-menu__item');
-
-for ( let i = 0; i < menu.length; i++ ) {    
-    menu[i].addEventListener('click', function() {
-        this.classList.toggle("is-active");
-    })
+/** 
+ *  Header menu
+ * */
+const menu = document.querySelectorAll('.js-menu__item a');
+for (let i = 0; i < menu.length; i++) {
+  menu[i].addEventListener('click', function () {
+    this.closest('.js-menu__item').classList.toggle("is-open");
+    this.closest('.js-menu__item').hasAttribute('data-order') ? loadOrderModule('order') : null;
+  })
 }
-
-// import slick from 'slick-carousel'
+document.querySelector('.menu__panel-close').addEventListener('click', function() {
+  this.closest('.menu__item').classList.remove('is-open');
+})
 
 /**
- * Slick-slider
-**/
-// $('.slider__list').slick({
-
-// });
+ * load order module
+ * */
+function loadOrderModule() {
+  require.ensure(['./order'], function(require){
+    let module = require('./order');
+    module();
+  })
+}
