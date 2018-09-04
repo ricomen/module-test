@@ -6,8 +6,8 @@ header.page-header
     .page-header__search.search
       label.search__label(for="search")
         +icon("search", 18, 18)
-        | Найти
-      input.search__field(type='search' id="search" placeholder="Поиск")
+      .search__field
+        input(type='search' id="search" placeholder="Поиск")
     nav.page-header__nav.menu
       ul.menu__list
         li.menu__item.is-active

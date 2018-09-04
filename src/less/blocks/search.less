@@ -3,42 +3,65 @@
   align-items: center;
   position: relative;
   padding-left: 10px;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 100%;
-    top: 0;
-    height: 0;
-    width: 0;
-    border: 12px solid #fff;
-    border-top: 30px solid transparent;
-    border-right: 30px solid transparent;
-    border-bottom: 30px solid transparent;
+  &.is-active &__field {    
+    min-width: 200px;
+    padding: 19px;
+    &::after {
+      right: 20px;
+    }
   }
   &__field {
-    font-size: 14px;
-    color: #2b2b2b;
-    border: none;
-    outline: none;
-    width: 100%;
-    transition: width 0.5s ease-in-out;
-    box-sizing: border-box;
-    &::placeholder {
-      color: #2b2b2b;
-      text-transform: uppercase;
-    }
-    &:focus {
+    position: relative;    
+    padding: 19px 0;
+    z-index: 100;
+    background-color: #fff;
+    transition: 0.5s ease-in-out; 
+    &::after {
       position: absolute;
-      top: 0;
-      left: 36px;
-      bottom: 0;
-      width: 200px;
-      border-bottom: 1px solid #2b2b2b;
-      &::placeholder {
-        color: transparent;
-      }
+      content: '';
+      left: 20px;
+      bottom: 18px;      
+      height: 1px;
+      background-color: #2b2b2b;
+      transition: 0.5s ease-in-out; 
     }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 100%;
+      top: 0;
+      height: 0;
+      width: 0;
+      border: 12px solid #fff;
+      border-top: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-bottom: 30px solid transparent;
+    }
+    input {
+      box-sizing: border-box;
+      font-size: 14px;
+      line-height: 20px;
+      color: #2b2b2b;
+      width: 100%;
+      border: none;
+      outline: none;           
+      &::placeholder {
+        color: #2b2b2b;
+        text-transform: uppercase;
+      }      
+    }
+
+    // &:focus {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 36px;
+    //   bottom: 0;
+    //   width: 200px;
+    //   border-bottom: 1px solid #2b2b2b;
+    //   &::placeholder {
+    //     color: transparent;
+    //   }
+    // }
   } //field
   &__label {
     cursor: pointer;
@@ -46,6 +69,5 @@
     border: none;
     outline: none;
     background: transparent;
-    font-size: 0;
   } //label
 } //search

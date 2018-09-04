@@ -30,3 +30,15 @@ function loadOrderModule() {
     module();
   })
 }
+
+/**
+* Search
+**/
+const search = document.querySelector('.search__field input');
+
+search.addEventListener('focus', function() {
+	this.closest('.search').classList.add('is-active');
+})
+search.addEventListener('blur', function() {
+	this.closest('.search').classList.remove('is-active');
+})
